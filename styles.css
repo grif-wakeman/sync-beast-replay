@@ -1,0 +1,15 @@
+@font-face {
+    font-family: NeueMontreal-bold;
+    font-weight: bold;
+    src: url("./assets/NeueMontreal-Bold.woff") format("woff");
+}
+
+body {
+    background-color: #1d1d1d;
+    color: #d5d5d5;
+    font-family: "NeueMontreal-bold";
+    padding: 30px;
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid white
+}
