@@ -555,7 +555,7 @@
             font-family: Inter;
             font-size: 14px;
             font-weight: 400;
-            color: #000000;
+            font-color: #000000;
             line-height: 1.6em
         }
 
@@ -748,12 +748,19 @@
         #_form_35_ ._x95947267 input {
             background-color: #d5d5d5
         }
+
+        #_form_35_ ::placeholder {
+            color: #1d1d1d;
+            opacity: 0.9
+        }
     </style>
 </head>
 
 <body>
     <h1>SYNC BEAST HSF 24</h1>
     <p>SIGN UP TO GET THE WORKSHOP REPLAY + EXTRAS</p>
+
+
     <form method="POST" action="https://syncbeast.activehosted.com/proc.php" id="_form_35_"
         class="_form _form_35 _inline-form  " novalidate data-styles-version="5">
         <input type="hidden" name="u" value="35" />
@@ -763,7 +770,7 @@
         <input type="hidden" name="m" value="0" />
         <input type="hidden" name="act" value="sub" />
         <input type="hidden" name="v" value="2" />
-        <input type="hidden" name="or" value="0a5d628da64eb3df57149e8fb412138c" />
+        <input type="hidden" name="or" value="35a09c49f756a4b80d5f77aac9c5ea05" />
         <div class="_form-content">
             <div class="_form_element _x67607098 _full_width ">
                 <label for="fullname" class="_form-label">
@@ -780,7 +787,8 @@
                 </div>
             </div>
             <div class="_button-wrapper _full_width">
-                <button id="_form_35_submit" class="_submit" type="submit" style="font-size: 24px; font-weight: bold;">
+                <button id="_form_35_submit" class="_submit" type="submit"
+                    style="font-size: 24px; font-family: NeueMontreal-bold;">
                     SIGN UP
                 </button>
             </div>
@@ -1288,14 +1296,19 @@
                         searchParams.forEach((value, key) => {
                             formData.append(key, value);
                         });
-
-                        const response = await fetch('https://syncbeast.activehosted.com/proc.php?jsonp=true', {
+                        let request = {
                             headers: {
                                 "Accept": "application/json"
                             },
                             body: formData,
                             method: "POST"
-                        });
+                        };
+
+                        let pageUrlParams = new URLSearchParams(window.location.search);
+                        if (pageUrlParams.has('t')) {
+                            request.headers.Authorization = 'Bearer ' + pageUrlParams.get('t');
+                        }
+                        const response = await fetch('https://syncbeast.activehosted.com/proc.php?jsonp=true', request);
                         return response.json();
                     }
                     if (formSupportsPost) {
