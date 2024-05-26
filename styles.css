@@ -4,14 +4,55 @@
     src: url("./assets/NeueMontreal-Bold.woff") format("woff");
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #1d1d1d;
-    color: #d5d5d5;
+    color: #fff;
     font-family: "NeueMontreal-bold";
     padding: 30px;
     max-width: 500px;
     margin: auto;
-    border: 1px solid white;
     text-align: center;
-    
+
+}
+
+.img-container {
+    width: 100%;
+    height: auto;
+}
+
+#header-img {
+    width: 100%;
+}
+
+p {
+    font-size: 20px;
+}
+
+.disclaimer {
+    font-size: 12px;
+    opacity: .6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sb-logo {
+    width: 25%;
+}
+
+.privacy-policy {
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: underline;
+    color: #fff;
+}
+
+a:visited {
+    text-decoration: underline;
 }
